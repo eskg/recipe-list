@@ -1,31 +1,33 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Recipe } from "../../models/Recipes";
-import { fetchRecipesAsyncAction } from "../asyncActions/recipeAsyncActions";
+import { fetchRecipeByIdAsyncAction, fetchRecipesAsyncAction } from "../asyncActions/recipeAsyncActions";
+import { Recipe } from './../../models/Recipes';
 
 export interface RecipeState {
     recipes: Recipe[];
+    recipe: Recipe | null;
 }
 
 const initialState: RecipeState = {
-    recipes: []
+    recipes: [],
+    recipe: null,
 };
 
-// set enabled config true or false
 const setRecipes = (state: RecipeState, action: PayloadAction<{ recipes: Recipe[] }>) => {
     state.recipes = action.payload.recipes;
 };
 
-// configure whiteLabel related states 
+const setRecipe = (state: RecipeState, action: PayloadAction<{ recipe: Recipe }>) => {
+    state.recipe = action.payload.recipe;
+};
+
 const recipeSlice = createSlice({
     name: 'recipe',
     initialState: initialState,
-    reducers: {
-
-    },
+    reducers: {},
     extraReducers: builder => {
         builder.addCase(fetchRecipesAsyncAction.fulfilled, setRecipes)
+        builder.addCase(fetchRecipeByIdAsyncAction.fulfilled, setRecipe)
     }
 });
-
 
 export default recipeSlice.reducer;

@@ -1,11 +1,11 @@
 export interface Recipe {
-  uuid: String;
-  title: String;
-  description: String;
+  uuid: string;
+  title: string;
+  description: string;
   images: RecipeImage;
-  servings: Number;
-  prepTime: Number;
-  cookTime: Number;
+  servings: number;
+  prepTime: number;
+  cookTime: number;
   postDate: Date;
   editDate: Date;
   ingredients: RecipeIngredient[];
@@ -13,19 +13,19 @@ export interface Recipe {
 }
 
 interface RecipeImage {
-  full: String;
-  medium: String;
-  small: String;
+  full: string;
+  medium: string;
+  small: string;
 }
 
-interface RecipeIngredient {
-  uuid: String;
+export interface RecipeIngredient {
+  uuid: string;
   amount: number;
-  measurement: String;
-  name: String;
+  measurement: string;
+  name: string;
 }
 
 interface RecipeDirection  {
-  instructions: String;
+  instructions: string;
   optional: Boolean;
 }

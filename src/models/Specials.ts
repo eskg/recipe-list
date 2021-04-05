@@ -1,8 +1,9 @@
 export interface Special {
-  uuid: String;
-  ingredientId: String;
-  type: String;
-  title: String;
-  geo?: String;
-  text?: String;
+  uuid: string;
+  ingredientId: string;
+  type: string;
+  title: string;
+  geo?: string;
+  text?: string;
+  code?: string;
 }
